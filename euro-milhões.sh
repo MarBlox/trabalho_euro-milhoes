@@ -74,6 +74,8 @@ guardar() {
                     echo "Os 5 numeros gerados até 50 foram ${numeros50[@]}" >> $nome_do_ficheiro.txt
                     echo "Os 2 numeros gerados até 12 foram ${numeros12[@]}" >> $nome_do_ficheiro.txt
                     echo "Ficheiro criado com sucesso"
+                    numeros50=()
+                    numeros12=()
                     break
                 fi
             else
