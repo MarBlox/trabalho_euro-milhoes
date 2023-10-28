@@ -6,41 +6,53 @@ ger12=0
 re=^[SsNn]$
 ren=^[a-z0-9_]+$
 
+clear
+
 gerador() {
     clear
     echo "Os 5 números até 50 são"
+    sleep 2
     for num50 in {1..5}; do
+        clear
         ger50=$((ger50 + 1))
         echo "O $ger50 numero é ..."
         sleep 1
         numero50=$((RANDOM % 50 + 1))
         numeros50+=("$numero50")
         echo "$numero50"
+        sleep 1
+        clear
     done
 
     echo "Os 2 números até 12 são"
+    sleep 2
     for num12 in {1..2}; do
+        clear
         ger12=$((ger12 + 1))
         echo "O $ger12 numero é ..."
         sleep 1
         numero12=$((RANDOM % 12 + 1))
         numeros12+=("$numero12")
         echo "$numero12"
+        sleep 1
+        clear
     done
     echo ""
     echo "Os 5 numeros gerados até 50 foram ${numeros50[@]}"
+    echo ""
     echo "Os 2 numeros gerados até 12 foram ${numeros12[@]}"
     echo ""
     guardar
+    ger50=0
+    ger12=0
 
-    echo ""
-
+    clear
+    
     echo "Quer gerar outra vez? (s/n)"
     read gerar
     if [[ $gerar =~ $re ]]; then
         if [[ $gerar == s ]]; then
             gerador
-            guardar
         else
             clear
             echo "Adeus"
@@ -51,11 +63,6 @@ gerador() {
     else
         echo "Tens de escrever s ou n para continuar"
     fi
-
-    ger50=0
-    ger12=0
-    numeros50=()
-    numeros12=()
 }
 
 guardar() {
@@ -80,7 +87,6 @@ guardar() {
                 fi
             else
                 echo "O ficheiro so pode conter letras minusculas, numero inteiro e só aceita esse caracter (_) "
-                break
             fi
         else
             break
@@ -102,7 +108,6 @@ while true; do
         if [[ $gerar == s ]]; then
             while true; do
                 gerador
-                guardar
             done
         else
             clear
