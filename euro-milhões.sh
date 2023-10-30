@@ -5,7 +5,8 @@ ger12=0
 
 re=^[SsNn]$
 ren=^[a-z0-9_]+$
-
+numeros50=()
+numeros12=()
 clear
 
 gerador() {
@@ -13,29 +14,47 @@ gerador() {
     echo "Os 5 números até 50 são"
     sleep 2
     for num50 in {1..5}; do
-        clear
-        ger50=$((ger50 + 1))
-        echo "O $ger50 numero é ..."
-        sleep 1
-        numero50=$((RANDOM % 50 + 1))
-        numeros50+=("$numero50")
-        echo "$numero50"
-        sleep 1
-        clear
+        while true; do
+            numero50=$((RANDOM % 50 + 1))
+            if [[ ! " ${numeros50[@]} " =~ " $numero50 " ]]; then
+                ger50=$((ger50 + 1))
+                echo "O $ger50 número é ..."
+                sleep 1
+                numeros50+=("$numero50")
+                echo "$numero50"
+                sleep 1
+                clear
+                break
+            else
+                echo "Erro: Número $numero12 já foi gerado."
+                echo "A gerar outro ..."
+                sleep 2
+                clear
+            fi
+        done
     done
 
     echo "Os 2 números até 12 são"
     sleep 2
     for num12 in {1..2}; do
-        clear
-        ger12=$((ger12 + 1))
-        echo "O $ger12 numero é ..."
-        sleep 1
-        numero12=$((RANDOM % 12 + 1))
-        numeros12+=("$numero12")
-        echo "$numero12"
-        sleep 1
-        clear
+        while true; do
+            numero12=$((RANDOM % 12 + 1))
+            if [[ ! " ${numeros12[@]} " =~ " $numero12 " ]]; then
+                ger12=$((ger12 + 1))
+                echo "O $ger12 número é ..."
+                sleep 1
+                numeros12+=("$numero12")
+                echo "$numero12"
+                sleep 1
+                clear
+                break
+            else
+                echo "Erro: Número $numero12 já foi gerado."
+                echo "A gerar outro ..."
+                sleep 2
+                clear
+            fi
+        done
     done
     echo ""
     echo "Os 5 numeros gerados até 50 foram ${numeros50[@]}"
@@ -45,7 +64,8 @@ gerador() {
     guardar
     ger50=0
     ger12=0
-
+    numeros50=()
+    numeros12=()
     clear
     
     echo "Quer gerar outra vez? (s/n)"
@@ -121,4 +141,3 @@ while true; do
         echo "Tens de escrever s ou n para continuar"
     fi
 done
-
