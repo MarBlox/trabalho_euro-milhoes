@@ -16,7 +16,7 @@ gerador() {
     for num50 in {1..5}; do
         while true; do
             numero50=$((RANDOM % 50 + 1))
-            if [[ ! " ${numeros50[@]} " =~ " $numero50 " ]]; then
+            if [[ !  ${numeros50[@]}  =~  $numero50  ]]; then
                 ger50=$((ger50 + 1))
                 echo "O $ger50 número é ..."
                 sleep 1
@@ -39,7 +39,7 @@ gerador() {
     for num12 in {1..2}; do
         while true; do
             numero12=$((RANDOM % 12 + 1))
-            if [[ ! " ${numeros12[@]} " =~ " $numero12 " ]]; then
+            if [[ !  ${numeros12[@]}  =~  $numero12  ]]; then
                 ger12=$((ger12 + 1))
                 echo "O $ger12 número é ..."
                 sleep 1
