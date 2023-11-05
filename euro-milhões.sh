@@ -1,7 +1,7 @@
 #!/bin/bash
 
-ger50=0
-ger12=0
+ger50=1
+ger12=1
 
 re=^[SsNn]$
 ren=^[a-z0-9_]+$
@@ -15,10 +15,10 @@ gerador() {
     sleep 2
     for num50 in {1..5}; do
         while true; do
+        echo "O $ger50 número é ..."
             numero50=$((RANDOM % 50 + 1))
             if [[ !  ${numeros50[@]}  =~  $numero50  ]]; then
                 ger50=$((ger50 + 1))
-                echo "O $ger50 número é ..."
                 sleep 1
                 numeros50+=("$numero50")
                 echo "$numero50"
@@ -38,10 +38,10 @@ gerador() {
     sleep 2
     for num12 in {1..2}; do
         while true; do
+            echo "O $ger12 número é ..."
             numero12=$((RANDOM % 12 + 1))
             if [[ !  ${numeros12[@]}  =~  $numero12  ]]; then
                 ger12=$((ger12 + 1))
-                echo "O $ger12 número é ..."
                 sleep 1
                 numeros12+=("$numero12")
                 echo "$numero12"
@@ -62,8 +62,8 @@ gerador() {
     echo "Os 2 numeros gerados até 12 foram ${numeros12[@]}"
     echo ""
     guardar
-    ger50=0
-    ger12=0
+    ger50=1
+    ger12=1
     numeros50=()
     numeros12=()
     clear
